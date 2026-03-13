@@ -9,13 +9,13 @@ map("n", "<leader>w", "<CMD>update<CR>")
 
 -- Navigate buffers
 map("n", "<leader>k", ":BufferLineCycleNext<CR>")
-vim.keymap.set("n", "<leader>j", ":BufferLineCyclePrev<CR>", opts)
-vim.keymap.set("n", "<leader>K", ":BufferLineMoveNext<CR>", opts)
-vim.keymap.set("n", "<leader>J", ":BufferLineMovePrev<CR>", opts)
-vim.keymap.set("n", "<leader>x", "<cmd>bdelete<CR>", opts)
+map("n", "<leader>j", ":BufferLineCyclePrev<CR>")
+map("n", "<leader>K", ":BufferLineMoveNext<CR>")
+map("n", "<leader>J", ":BufferLineMovePrev<CR>")
+map("n", "<leader>x", "<cmd>bdelete<CR>")
 
 -- Clear highlights
-vim.keymap.set("n", "<leader>h", "<cmd>nohlsearch<CR>", opts)
+map("n", "<leader>h", "<cmd>nohlsearch<CR>")
 
 -- File Nav
 map("n", "<leader>t", "<CMD>Neotree toggle<CR>")
@@ -29,3 +29,15 @@ map("n", "<leader>E", ":Ex<CR>")
 map("n", "<leader>`", ":e ~/.config/nvim/init.lua<CR>")
 -- map("n", "<leader>4", ":e ~/.config/alacritty/alacritty.yml<CR>")
 -- map("n", "<leader>2", ":e ~/.tmux.conf<CR>")
+
+map("n", "gd", vim.lsp.buf.definition)
+map("n", "K", vim.lsp.buf.hover)
+map("n", "<C-k>", vim.diagnostic.open_float)
+map("i", "<C-h>", vim.lsp.buf.signature_help)
+
+map("n", "+", function()
+	vim.diagnostic.jump({ count = 1, float = true })
+end)
+map("n", "-", function()
+	vim.diagnostic.jump({ count = -1, float = true })
+end)
